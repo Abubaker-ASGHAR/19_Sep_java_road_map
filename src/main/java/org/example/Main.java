@@ -15,9 +15,9 @@ public class Main {
             dbManager.createTable();
 
             // Insert sample users
-            dbManager.insertUser("Alice", "alice@example.com");
-            dbManager.insertUser("Bob", "bob@example.com");
-            dbManager.insertUser("Charlie", "charlie@example.com");
+            dbManager.insertUser("Alice1", "alice@example.1com");
+            dbManager.insertUser("Bob1", "bob@example.1com");
+            dbManager.insertUser("Charlie1", "charlie@example.1com");
 
             // Retrieve and display all users
             dbManager.getAllUsers();

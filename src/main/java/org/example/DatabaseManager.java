@@ -4,22 +4,21 @@ package org.example;
 import java.sql.*;
 
 public class DatabaseManager {
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/jdbc_example?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";
-    private static final String JDBC_USER = "jdbc_user";
-    private static final String JDBC_PASSWORD = "strong_password"; // Replace with your password
+    private static final String JDBC_URL = "jdbc:postgresql://localhost:5432/exampleusers";
+    private static final String JDBC_USER = "root";
+    private static final String JDBC_PASSWORD = "Ts123456!"; // Replace with your password
 
     private Connection connection;
 
     // Establishes a connection to the database
     public void connect() throws SQLException {
         connection = DriverManager.getConnection(JDBC_URL, JDBC_USER, JDBC_PASSWORD);
-        System.out.println("Connected to the MySQL database.");
+        System.out.println("Connected to the Postgresql database.");
     }
 
-    // Creates a sample table
     public void createTable() throws SQLException {
         String createTableSQL = "CREATE TABLE IF NOT EXISTS users (" +
-                "id INT AUTO_INCREMENT PRIMARY KEY, " +
+                "id SERIAL PRIMARY KEY, " +  // Change AUTO_INCREMENT to SERIAL
                 "name VARCHAR(255) NOT NULL, " +
                 "email VARCHAR(255) NOT NULL UNIQUE)";
         try (Statement stmt = connection.createStatement()) {
@@ -27,6 +26,7 @@ public class DatabaseManager {
             System.out.println("Table 'users' created successfully.");
         }
     }
+
 
     // Inserts a user into the table
     public void insertUser(String name, String email) throws SQLException {

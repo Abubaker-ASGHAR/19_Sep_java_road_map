@@ -15,11 +15,13 @@
     </properties>
     <dependencies>
         <!-- MySQL Connector/J Dependency -->
+
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.32</version>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.5.0</version> <!-- Check for the latest version -->
         </dependency>
+
 
 
 
